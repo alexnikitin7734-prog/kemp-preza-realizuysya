@@ -65,6 +65,16 @@ th { font-size: 18px; font-weight: 700; letter-spacing: .06em; text-transform: u
 td { font-size: 30px; padding: 22px 16px 22px 0; border-top: 1px solid rgba(29, 22, 48, .1); vertical-align: top; }
 td b { font-weight: 800; }
 
+/* слайд 0: одно слово во весь экран, буквы текут градиентом, проявляется из размытия */
+.mega { position: absolute; left: 0; right: 0; top: 50%; margin-top: -120px; text-align: center; font-family: Unbounded, sans-serif; font-weight: 700; font-size: 178px; line-height: 1.1; letter-spacing: -.01em; text-transform: uppercase;
+  background: linear-gradient(90deg, var(--a), var(--b), var(--c), var(--b), var(--a)) 0 0 / 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: stream 7s linear infinite; transition: opacity 1.2s ease, filter 1.4s ease, letter-spacing 1.8s cubic-bezier(.2, 0, .1, 1), transform 1.8s cubic-bezier(.2, 0, .1, 1); }
+@keyframes stream { to { background-position: 200% 0; } }
+.s0 .sub { position: absolute; left: 0; right: 0; top: 50%; margin-top: 130px; text-align: center; font-size: 26px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--ink); opacity: .7; transition: opacity 1s ease .9s; }
+.s0:not(.on) .mega { opacity: 0; filter: blur(40px); letter-spacing: .12em; transform: scale(.9); }
+.s0.out .mega { transform: scale(1.15); }
+.s0:not(.on) .sub { opacity: 0; transition-delay: 0s; }
+
 .pager { position: absolute; right: 70px; bottom: 22px; display: flex; gap: 8px; }
 .pager i { width: 26px; height: 6px; border-radius: 3px; background: rgba(29, 22, 48, .16); }
 .pager i.on { background: var(--ink); }
